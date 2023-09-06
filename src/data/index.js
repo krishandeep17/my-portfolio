@@ -1,36 +1,24 @@
 import {
   bootstrap,
   css,
-  foodbrain,
+  dalleClone,
   git,
   html,
   javascript,
   mongodb,
+  movieHub,
   mui,
   nodejs,
+  portfolioWebsite,
   reactjs,
+  reactQuizApp,
   redux,
+  smartEats,
   tailwind,
-  trippassage,
-  workoutpal,
+  workoutApp,
 } from "../assets";
 
-export const navLinks = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
-];
-
-const technologies = [
+export const technologies = [
   {
     name: "HTML5",
     icon: html,
@@ -77,32 +65,45 @@ const technologies = [
   },
 ];
 
-const projects = [
+export const projects = [
   {
-    name: "Trip Passage",
+    id: 1,
+    name: "DALL-E Clone",
     description:
-      "Full-stack project for booking tours, built using Node.js with Express for the backend, MongoDB as the database, and HTML Pug for the frontend. The application also includes JWT authentication and Stripe for payment processing.",
+      "MERN stack web application that converts a given prompt into an image using OpenAI API. The resulting image can then be downloaded by the user. Tailwind CSS is used for styling and Cloudinary is used for image storage and management.",
     tags: [
       {
-        name: "bootstrap",
-        color: "text-purple-600",
+        name: "cloudinary",
+        color: "text-indigo-600",
       },
       {
         name: "express",
-        color: "text-stone-600",
+        color: "text-neutral-600",
       },
       {
         name: "mongodb",
-        color: "text-green-600",
+        color: "text-emerald-600",
+      },
+      {
+        name: "nodejs",
+        color: "text-slate-600",
+      },
+      {
+        name: "openai",
+        color: "text-purple-600",
+      },
+      {
+        name: "react",
+        color: "text-cyan-600",
       },
     ],
-    image: trippassage,
-    source_code_link: "https://github.com/krishandeep17/trippassage",
-    website_link: "https://github.com/krishandeep17/trippassage",
+    image: dalleClone,
+    source_code_link: "https://github.com/krishandeep17/dall-e-clone",
+    website_link: "https://text2image-ai.netlify.app",
   },
-
   {
-    name: "Workout Pal",
+    id: 2,
+    name: "Workout App",
     description:
       "Web application built using React that allows users to view workouts, exercises targeting the same muscle group, exercises using the same equipment, and related YouTube videos. The application fetches data from a third-party API.",
     tags: [
@@ -115,36 +116,117 @@ const projects = [
         color: "text-cyan-600",
       },
       {
-        name: "api",
+        name: "react-router",
         color: "text-red-600",
       },
+      {
+        name: "swiper",
+        color: "text-blue-600",
+      },
+      {
+        name: "rapidAPI",
+        color: "text-violet-600",
+      },
     ],
-    image: workoutpal,
-    source_code_link: "https://github.com/krishandeep17/workoutpal",
+    image: workoutApp,
+    source_code_link: "https://github.com/krishandeep17/workout-app",
     website_link: "https://workoutpal.netlify.app",
   },
   {
-    name: "Food Brain",
+    name: "Portfolio Website",
+    description:
+      "Web application that designed to showcase my work and provide information about my skills, experience, and background. Features stunning 3D graphics, animations, email sending, and top performance with Suspense and Preload.",
+    tags: [
+      {
+        name: "emailjs",
+        color: "text-amber-600",
+      },
+      {
+        name: "react-three",
+        color: "text-teal-600",
+      },
+      {
+        name: "framer-motion",
+        color: "text-pink-600",
+      },
+      {
+        name: "react",
+        color: "text-cyan-600",
+      },
+      {
+        name: "react-tilt",
+        color: "text-rose-600",
+      },
+    ],
+    image: portfolioWebsite,
+    source_code_link: "https://github.com/krishandeep17/my-portfolio",
+    website_link: "https://krishandeep.netlify.app",
+  },
+  {
+    name: "React Quiz App",
+    description:
+      "A dynamic quiz web application developed using the power of React. Challenge yourself with React Framework quizzes, track your scores, and enjoy a seamless user experience. Learn, play, and explore new horizons through interactive quizzes!",
+    tags: [
+      {
+        name: "css",
+        color: "text-blue-600",
+      },
+      {
+        name: "json-server",
+        color: "text-rose-600",
+      },
+      {
+        name: "react",
+        color: "text-cyan-600",
+      },
+    ],
+    image: reactQuizApp,
+    source_code_link: "https://github.com/krishandeep17/react-quiz-app",
+    website_link: "https://react-quizzler.netlify.app",
+  },
+  {
+    name: "MovieHub",
+    description:
+      "MovieHub is a web application built with React that allows users to search for movies, rate them, and create a personalized watched list. It provides a seamless and user-friendly experience for movie enthusiasts to discover, track, and manage their favorite films.",
+    tags: [
+      {
+        name: "css",
+        color: "text-blue-600",
+      },
+      {
+        name: "react",
+        color: "text-cyan-600",
+      },
+      {
+        name: "omdbAPI",
+        color: "text-amber-600",
+      },
+    ],
+    image: movieHub,
+    source_code_link:
+      "https://github.com/krishandeep17/practicing-react/tree/main/05-movies-hub",
+    website_link: "https://moviehubbb.netlify.app",
+  },
+  {
+    name: "Smart Eats",
     description:
       "Frontend project for a website that utilizes artificial intelligence to provide personalized food recommendations, recipes, and nutritional advice based on individual preferences and dietary needs. The website is built using HTML, CSS, and JavaScript.",
     tags: [
       {
-        name: "html",
-        color: "text-orange-600",
-      },
-      {
         name: "css",
         color: "text-blue-600",
+      },
+      {
+        name: "html",
+        color: "text-orange-600",
       },
       {
         name: "javascript",
         color: "text-yellow-600",
       },
     ],
-    image: foodbrain,
-    source_code_link: "https://github.com/krishandeep17/foodbrain",
-    website_link: "https://foodbrain.netlify.app",
+    image: smartEats,
+    source_code_link: "https://github.com/krishandeep17/smart-eats",
+    website_link: "https://smarteats.netlify.app",
   },
 ];
-
-export { technologies, projects };
