@@ -6,7 +6,7 @@ import { EarthCanvas } from "./canvas";
 import { styles } from "../styles";
 import { fadeIn, slideIn, staggerContainer } from "../utils/motion";
 
-const Contact = () => {
+const Contact = ({ contactRef }) => {
   const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
@@ -66,6 +66,7 @@ const Contact = () => {
 
   return (
     <motion.section
+      ref={contactRef}
       variants={staggerContainer()}
       initial="hidden"
       whileInView="show"

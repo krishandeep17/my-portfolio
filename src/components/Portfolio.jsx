@@ -68,9 +68,10 @@ const ProjectCard = ({
   );
 };
 
-const Works = () => {
+const Portfolio = ({ portfolioRef }) => {
   return (
     <motion.section
+      ref={portfolioRef}
       variants={staggerContainer()}
       initial="hidden"
       whileInView="show"
@@ -99,7 +100,7 @@ const Works = () => {
         effectively.
       </motion.p>
 
-      <div className="mt-12 grid grid items-stretch sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-7">
+      <div className="mt-12 grid items-stretch sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-7">
         {projects.map((project, index) => (
           <ProjectCard key={index} index={index} {...project} />
         ))}
@@ -108,4 +109,4 @@ const Works = () => {
   );
 };
 
-export default Works;
+export default Portfolio;

@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { FiGithub, FiInstagram, FiLinkedin } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-import { close, menu } from "../assets";
-import { navLinks } from "../data";
 import { fadeIn } from "../utils/motion";
+import { HamburgerMenu, NavLink } from "../components";
 
-const Navbar = () => {
+const Navbar = ({ heroRef, aboutRef, portfolioRef, contactRef }) => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
@@ -37,12 +35,11 @@ const Navbar = () => {
       animate="show"
     >
       <nav className="flex justify-between items-center max-w-7xl mx-auto">
-        <Link
-          to="/"
-          className="flex items-center gap-2"
+        <div
+          className="flex items-center gap-2 cursor-pointer"
           onClick={() => {
             setActive("");
-            window.scrollTo(0, 0);
+            heroRef.current.scrollIntoView({ behavior: "smooth" });
           }}
         >
           <div className="flip-card">
@@ -54,7 +51,7 @@ const Navbar = () => {
           <p className="text-slate-200 text-xl font-bold xs:block hidden">
             Krishandeep
           </p>
-        </Link>
+        </div>
         <ul className="flex items-center gap-3.5">
           <li>
             <motion.a
@@ -97,55 +94,58 @@ const Navbar = () => {
           </li>
         </ul>
         <ul className="hidden md:flex gap-10">
-          {navLinks.map((link) => (
-            <li key={link.id}>
-              <motion.a
-                href={`#${link.id}`}
-                className={`${
-                  active === link.title ? "text-main" : "text-slate-200"
-                } font-medium text-lg inline-block hover:text-main active:text-main`}
-                onClick={() => setActive(link.title)}
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                {link.title}
-              </motion.a>
-            </li>
-          ))}
+          <NavLink
+            active={active}
+            setActive={setActive}
+            refContainer={aboutRef}
+          >
+            about
+          </NavLink>
+          <NavLink
+            active={active}
+            setActive={setActive}
+            refContainer={portfolioRef}
+          >
+            portfolio
+          </NavLink>
+          <NavLink
+            active={active}
+            setActive={setActive}
+            refContainer={contactRef}
+          >
+            contact
+          </NavLink>
         </ul>
         <div className="md:hidden flex justify-end items-center">
-          <img
-            src={toggle ? close : menu}
-            alt="menu"
-            className="w-7 h-7 object-contain cursor-pointer"
-            onClick={() => setToggle(!toggle)}
-          />
+          <HamburgerMenu toggle={toggle} setToggle={setToggle} />
+
           <div
             className={`${
               !toggle && "hidden"
             } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 z-10 rounded-xl min-w-[140px]`}
           >
             <ul className="list-none flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <li key={link.id}>
-                  <motion.a
-                    href={`#${link.id}`}
-                    className={`${
-                      active === link.title
-                        ? "text-main"
-                        : "text-text-slate-200"
-                    } font-medium text-base hover:text-main active:text-main`}
-                    whileHover={{ scale: 1.2, originX: 0 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    onClick={() => {
-                      setActive(link.title);
-                      setToggle(!toggle);
-                    }}
-                  >
-                    {link.title}
-                  </motion.a>
-                </li>
-              ))}
+              <NavLink
+                active={active}
+                setActive={setActive}
+                refContainer={aboutRef}
+              >
+                about
+              </NavLink>
+              <NavLink
+                active={active}
+                setActive={setActive}
+                refContainer={portfolioRef}
+              >
+                portfolio
+              </NavLink>
+              <NavLink
+                active={active}
+                setActive={setActive}
+                refContainer={contactRef}
+              >
+                contact
+              </NavLink>
             </ul>
           </div>
         </div>

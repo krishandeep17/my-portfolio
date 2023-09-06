@@ -4,9 +4,10 @@ import { styles } from "../styles";
 import Tech from "./Tech";
 import { fadeIn, staggerContainer } from "../utils/motion";
 
-const About = () => {
+const About = ({ aboutRef }) => {
   return (
     <motion.section
+      ref={aboutRef}
       variants={staggerContainer()}
       initial="hidden"
       whileInView="show"

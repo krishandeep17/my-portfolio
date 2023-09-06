@@ -1,4 +1,5 @@
-import { BrowserRouter } from "react-router-dom";
+import { useRef } from "react";
+
 import {
   About,
   Contact,
@@ -10,22 +11,31 @@ import {
 } from "./components";
 
 const App = () => {
+  const heroRef = useRef(null);
+  const aboutRef = useRef(null);
+  const portfolioRef = useRef(null);
+  const contactRef = useRef(null);
+
   return (
-    <BrowserRouter>
-      <div className="relative z-0 bg-primary overflow-x-hidden">
-        <div className="bg-hero-pattern bg-cover bg-center bg-no-repeat">
-          <Navbar />
-          <Hero />
-        </div>
-        <About />
-        <Portfolio />
-        <div className="relative z-0">
-          <Contact />
-          <StarsCanvas />
-        </div>
-        <Footer />
+    <div className="relative z-0 bg-primary overflow-x-hidden">
+      <div className="bg-hero-pattern bg-cover bg-center bg-no-repeat">
+        <Navbar
+          heroRef={heroRef}
+          aboutRef={aboutRef}
+          portfolioRef={portfolioRef}
+          contactRef={contactRef}
+        />
+        <Hero aboutRef={aboutRef} heroRef={heroRef} />
       </div>
-    </BrowserRouter>
+      <About aboutRef={aboutRef} />
+      <Portfolio portfolioRef={portfolioRef} />
+      <div className="relative z-0">
+        <Contact contactRef={contactRef} />
+        <StarsCanvas />
+      </div>
+      <Footer />
+    </div>
   );
 };
+
 export default App;

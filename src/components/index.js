@@ -7,8 +7,10 @@ import {
 import About from "./About";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import HamburgerMenu from "./HamburgerMenu";
 import Hero from "./Hero";
 import Navbar from "./Navbar";
+import NavLink from "./NavLink";
 import Portfolio from "./Portfolio";
 
 export {
@@ -18,8 +20,10 @@ export {
   Contact,
   EarthCanvas,
   Footer,
+  HamburgerMenu,
   Hero,
   Navbar,
+  NavLink,
   Portfolio,
   StarsCanvas,
 };
